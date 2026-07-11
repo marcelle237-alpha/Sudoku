@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sudoku</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="game-panel" aria-label="Sudoku game">
+      <header class="topbar">
+        <div>
+          <h1>Sudoku</h1>
+          <p id="statusText">Pick a square and solve the grid.</p>
+        </div>
+        <div class="stats" aria-label="Game stats">
+          <span id="timer">00:00</span>
+          <span id="mistakes">0 mistakes</span>
+        </div>
+      </header>
+
+      <div class="toolbar" aria-label="Game controls">
+        <button id="newGameBtn" type="button">New</button>
+        <button id="checkBtn" type="button">Check</button>
+        <button id="hintBtn" type="button">Hint</button>
+        <button id="eraseBtn" type="button">Erase</button>
+        <label class="level-control">
+          <span>Level</span>
+          <select id="levelSelect">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+        <label class="toggle">
+          <input id="notesToggle" type="checkbox">
+          <span>Notes</span>
+        </label>
+      </div>
+
+      <div class="board-wrap">
+        <div id="board" class="board" role="grid" aria-label="Sudoku board"></div>
+      </div>
+
+      <div id="numberPad" class="number-pad" aria-label="Number pad"></div>
+    </section>
+
+    <section class="explanation" aria-label="How the game works">
+      <h2>How It Works</h2>
+      <p>Fill every square with a number from 1 to 9. Each row, each column, and each 3x3 box must contain every number once.</p>
+      <p>Pick a level, select an empty square, then use the number pad or keyboard. Notes lets you pencil in possible answers, Check reviews your progress, and Hint fills one square.</p>
+    </section>
+
+    <div id="finishDialog" class="finish-dialog" role="dialog" aria-modal="true" aria-labelledby="finishTitle" hidden>
+      <div class="finish-card">
+        <h2 id="finishTitle">Super</h2>
+        <p id="finishMessage">You solved the puzzle.</p>
+        <div class="finish-actions">
+          <button id="restartBtn" type="button">Restart</button>
+          <button id="nextLevelBtn" type="button">Next Level</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
